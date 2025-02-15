@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from verbecc import Conjugator
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the Flask app
 
 @app.route('/conjugate/<lang>/<verb>', methods=['GET'])
 def conjugate(lang, verb):
